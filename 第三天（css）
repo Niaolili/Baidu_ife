@@ -1,0 +1,21 @@
+body{
+  text-align:justify;
+}
+h1 {  text-align:center;
+    font-size: 42px;
+    font-family:SimHei;
+}
+h2{
+ 
+}
+p {
+    font-family:NSimSun;
+}
+li{
+  line-height: 1.5;
+  font-family:KaiTi;
+}
+
+.教育背景{
+  line-height: 1.5；
+}
