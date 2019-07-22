@@ -8,11 +8,11 @@
     <h1 align="center">简历</h1>
     <p>万乡树</p>
     <div style="width:1200px; border:1px solid blue;"></div>
-    <p>联系电话</p>
+    <p>联系电话:<span>11111111</span></p>
     <div style="width:1200px; border:1px solid blue;"></div>
-    <p>电子邮箱</p>
+    <p>电子邮箱:<span>111111@email.com</span></p>
     <div style="width:1200px; border:1px solid blue;"></div>
-    <strong><p>应聘岗位</p></strong>
+    <strong><p>应聘岗位:<span>Web前端开发工程师</span></p></strong>
     <div style="width:1500px; border:1px solid blue;"></div>
     <h2>教育背景</h2>
       <p>2016.09~至今 福建大学 物联网工程 本科</p>
