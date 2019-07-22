@@ -19,3 +19,10 @@ li{
 .教育背景{
   line-height: 1.5；
 }
+html{
+  color:black;
+  background-color:#4EFEB3;
+}
+div{
+  color:#408080;
+}
