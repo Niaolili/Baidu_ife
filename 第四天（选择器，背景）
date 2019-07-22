@@ -1,0 +1,41 @@
+body{ background:url(https://c-ssl.duitang.com/uploads/item/201603/21/20160321201005_RPFA3.jpeg) no-repeat 99% 8%;
+  background-size: 210px 210px;
+  text-align:justify;
+}
+h1 {  border:3px solid #3D7878;
+    background-color:#FFDCB9;
+    text-align:center;
+    font-size: 42px;
+    font-family:SimHei;
+}
+h2{
+ 
+}
+a{
+  a:link {color:#408080;}		/* 未被访问的链接 */
+a:visited {color:#FFDCB9;}	/* 已被访问的链接 */
+a:hover {color:#5151A2;}	/* 鼠标指针移动到链接上 */
+a:active {color:#D94600;}	/* 正在被点击的链接 */
+}
+p {   
+    
+}
+li{
+  line-height: 1.5;
+  font-family:KaiTi;
+}
+
+.教育背景{
+  line-height: 1.5；
+}
+html{
+  color:black;
+  background-color: linear-gradient(to bottom,#7AFEC6, #FFD0FF 50%, #02C874);
+  background:
+    linear-gradient(to bottom,#7AFEC6, #FFD0FF 50%, #02C874);
+  
+              
+}
+div{
+  color:#408080;
+}
