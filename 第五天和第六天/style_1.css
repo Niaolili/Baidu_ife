@@ -1,0 +1,18 @@
+body {
+    width: 90%;
+    max-width: 900px;
+    margin: 0 auto;
+  }
+ h1 {
+    width: 22%;
+    height: 1200px;
+    float: left;
+    background-color: #7AFEC6;
+    text-align: center;
+  }
+.pw {
+    width: 65%;
+    padding-left: 3%;
+    float: left;
+    bolder: 1px solid black;
+  }
