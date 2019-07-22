@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>历历的简历</title>
+  </head>
+  <body>
+    <h1 align="center">简历</h1>
+    <p>万乡树</p>
+    <div style="width:1200px; border:1px solid blue;"></div>
+    <p>联系电话</p>
+    <div style="width:1200px; border:1px solid blue;"></div>
+    <p>电子邮箱</p>
+    <div style="width:1200px; border:1px solid blue;"></div>
+    <strong><p>应聘岗位</p></strong>
+    <div style="width:1500px; border:1px solid blue;"></div>
+    <h2>教育背景</h2>
+      <p>2016.09~至今 福建大学 物联网工程 本科</p>
+    <div style="width:1500px; border:1px solid blue;"></div>
+    <h2>校园经历</h2>
+      <ul><strong>
+        <li>2016.02 福建大校园程序设计竞赛 三等奖</li>
+        <li>2019.4 福建大电子设计竞赛</li>
+        <li>2018.7~至今 KingGlory实验室学习</li>
+        </strong>
+      </ul>
+    <div style="width:1500px; border:1px solid blue;"></div>
+    <h2>项目经历</h2>
+      <ul><strong>2018.7~2018.10 智能交通拥堵传播预测和可视化
+        </strong>
+        <li>开发环境：vc6.0</li>
+        <li>开发语言：JS</li>
+        <li>项目描述：通过王者峡谷的拥挤路况训练模型，预测拥堵的传播</li>
+      </ul>
+    <div style="width:1500px; border:1px solid blue;"></div>
+    <h2>技能证书</h2>
+      <ul>
+        <li>语言能力：通过大学英语四级</li>
+        <li>计算机能力：掌握 C，python，JS 等编程语言</li>
+      </ul>
+    <div style="width:1500px; border:1px solid blue;"></div>
+    <h2>个人总结</h2>
+      <ul>
+      <li>热情上进，勇于挑战</li>
+      <li>踏实细心，乐于学习</li>
+      </ul>
+  </body>
+</html>
