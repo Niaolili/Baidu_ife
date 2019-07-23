@@ -1,0 +1,15 @@
+.main  {
+    width: 100%;
+    box-sizing: border-box;
+}
+.left {
+width:30%;
+background-color: palevioletred;
+position:absolute;
+}
+.right {
+width:70%;
+background-color: palegreen;
+position:absolute;
+left:30%;
+}
