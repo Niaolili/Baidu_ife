@@ -1,0 +1,243 @@
+html{
+    height: 100%;
+    overflow: hidden;
+}
+body{
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+    overflow: hidden;
+}
+.head_portrait{
+    width: 70px;
+    height: 70px;
+    border-radius:50%
+}
+.main{
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+    overflow: hidden;
+}
+.main .navigator{
+    height: 100%;
+    width: 350px;
+    float: left;
+    overflow: hidden;
+}
+.navigator .left_nav{
+    background-color: #005757;
+    height: 100%;
+    width:  100px;
+    float:  left;
+    margin: 0 auto;
+    text-align: center;
+}
+.navigator .left_nav img{
+    margin: 10px  0 0 0;
+}
+.left_nav .nav_top_img{
+    position: absolute;
+    left: 25px;
+}
+.left_nav .nav_bottom_img{
+    position: absolute;
+    bottom: 10px;
+    left: 30px;
+}
+.left_nav .nav_bottom_img img{
+    margin: 0 10px 0 0;
+}
+.navigator .right_nav{
+    background-color: #009393;
+    height: 100%;
+    width: 250px;
+    float: left;
+}
+.right_nav .list li{
+    line-height: 1.5em;
+    list-style: none;
+}
+.right_nav .list img {
+   float: right;
+   position: relative;
+   right: 10px;
+   top: 3px;
+}
+.right_bav_bottom_bar{
+    position: absolute;
+    bottom: 10px;
+    left: 140px;
+}
+
+
+.main .messages{
+    background-color:white;
+    float: left;
+    height: 100%;
+    width: calc(100% - 350px);
+    overflow:hidden;
+    color: gray;
+}
+
+.messages .top_colum{
+    float: left;
+    height: 100px;
+    width: 100%;
+    overflow: hidden;
+    border-bottom:  1px solid gray;
+}
+.messages .top_colum p {
+    margin: 10px 0 0 20px;
+}
+.top_colum .messages_head {
+    width: 200px;
+    height: 100px;
+    float: right;
+    position: absolute;
+    right: 70px;
+    top:10px;
+    overflow: hidden;
+}
+.top_colum .messages_head img{
+    float: left;
+}
+.top_colum .messages_head p{
+    float: right;
+}
+.messages .right_bar{
+    width: 100%;
+    float: left;
+    height: 80px;
+    overflow: hidden;
+    border-bottom: 1px solid gray;
+}
+.right_bar .search_box{
+    height: 99%;
+    width: 30%;
+    float: left;
+    text-align: center;
+    border-right: 1px solid gray;
+}
+.right_bar .search_box input{
+    width: 240px;
+    position: relative;
+    top: 30px;
+}
+.right_bar .function{
+    width: 68%;
+    height: 99%;
+    float: left;
+    overflow: hidden;
+}
+.function .name{
+    float: left;
+    width: 50%;
+    position: relative;
+    top: 15px;
+    left: 15px;
+}
+.function .function_button{
+    float: left;
+    width: 49%;
+    overflow: hidden;
+    position: relative;
+    top: 25px;
+}
+.function .function_button img{
+    float: left;
+}
+.function .function_button p{
+    float: left;
+    margin-right: 1em;
+    position: relative;
+    left: 40px;
+    bottom: 12px;
+}
+.function_button .little_colum{
+    float: left;
+    border-left: 1px solid gray;
+    height: 1.5em;
+    position: relative;
+    left: 20px;
+}
+.function_button .right_right_button img{
+    float: left;
+    position: relative;
+    left: 40px;
+}
+.messages .right_page{
+    float: left;
+    width: 100%;
+    height: calc(100% - 170px);
+    overflow: hidden;
+}
+.right_page .contacts{
+    float: left;
+    height: 100%;
+    width: 30%;
+}
+.right_page .contacts img{
+    float: left;
+}
+.right_page .contacts ul{
+    float: left;
+    overflow: hidden;
+}
+.right_page .contacts li{
+    float: left;
+    overflow: hidden;
+    position: relative;
+    left: -20px;
+    border-bottom: 1px solid gray;
+}
+.right_page .contacts ul{
+    position: relative;
+    bottom: 16px;
+    left: 1px;
+    border-right: 1px solid gray;
+}
+.contacts .time{
+    float: right;
+}
+.contacts .info{
+    float: left;
+}
+.contacts .preview{
+    float: right;
+    font-size: 0.8em;
+}
+.right_page .chatting_text{
+    float: left;
+    height: 100%;
+    width: 68%;
+    overflow: hidden;
+}
+.chatting_text .chatting_box{
+    float: left;
+    position: relative;
+    left: 40px;
+    top:20px;
+    overflow: hidden;
+}
+.chatting_box .text_text{
+    float: left;
+    margin-right: 2em;
+    position: relative;
+    left: 20px;
+}
+.chatting_box .text_time{
+    float: left;
+    position: relative;
+    left: 20px;
+}
+.chatting_text .chatting_box img{
+    float: left;
+}
+.chatting_box .chatting_box_text{
+    float: left;
+    overflow: hidden;
+    width: 80%;
+    position: relative;
+    left: 20px;
+}
