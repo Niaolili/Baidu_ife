@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset="UTF-8">    
+    <meta charset="UTF-8">
     <title>IFE ECMAScript</title>
 </head>
-<body>        
+<body>
     <div id="wrapper">
         <div id="news-top" class="section">
             <h3>Some title</h3>
@@ -31,51 +31,34 @@
             </div>
             <img src="">
             <p class="">Some Text</p>
-        </div>      
+        </div>
     </div>
     <script>
-
     function getAllListItem() {
         // 返回页面中所有li标签
-        return document.getElementsByTagName("li");
-
+        var a= document.getElementsByTagName("li").innerHTML;
+        console.log(a);
     }
-
     function findAllHtmlSpanInOneSection(sectionId) {
         // 返回某个section下所有span中内容为HTML的span标签
-        let b=document.getElementsByTagName(sectionId);
-        let c=b.getElementsByTagName("span");
-        let p=0,o=0,a=[];
-        for(i in c){
-            if(c[p]==="HTML"){a[o]=c[p];o++}
-            p++;
+        let c=document.getElementById(sectionId).getElementsByTagName("span");
+        for(i=0;i<c.length;i++){
+            if(c[i].innerHTML=="HTML"){return c[i];}
         }
-        return a;
     }
-
     function findListItem(sectionId, spanCont) {
         // 返回某个section下，所有所包含span内容为spanCont的LI标签
-        let b=document.getElementsByTagName(sectionId);
-        let c=b.getElementsByTagName("li");
-        let d=c.getElementsByTagName("span");
-        let p=0,o=0,a[];
-        for(i in d){
-            if(d[p]==spanCont){a[o]=d[p];o++}
-            p++;
-        }
-        return a;
+        let a=document.getElementById(sectionId).getElementsByTagName("span");
+        for(i=0;i<a.length;i++)
+            {if (a[i].innerHTML==spanCont){return a[i]}
     }
-
+    }
     function getActiveLinkContent(sectionId) {
         // 返回某个section下，class为active的链接中包含的文字内容
-        let l=document.getElementById(sectionId);
-        let g=l.getElementsByTagName("a");
-        let h=g.getElementsByClassName("active");
-        let res[];
-        for(i in h){res.push(h[i].innerHTML); }
-        return res;
+        let a=document.getElementById(sectionId).getElementsByClassName("active");
+        for(i=0;i<a.length;i++)
+            {return a[i].innerHTML;}
     }
-
     </script>
 </body>
 </html>
