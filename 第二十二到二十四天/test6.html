@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+    </head>
+    <body>
+        <input id="queue-input" type="text">
+        <p id="queue-cont">队列内容：apple-&gt;pear</p>
+        <button id="in-btn">入队</button>
+        <button id="out-btn">出队</button>
+        <button id="font-btn">打印队头元素内容</button>
+        <button id="empty-btn">判断队列是否为空</button>
+
+        <script>
+            var queue = ["apple", "pear"];
+            document.getElementById("in-btn").addEventListener("click", ru_dui);
+            document.getElementById("out-btn").addEventListener("click", chu_dui);
+            document.getElementById("font-btn").addEventListener("click", da_yin);
+            document.getElementById("empty-btn").addEventListener("click", pan_duan);
+            function ru_dui()
+            {   queue.push("orange");
+                document.getElementById("queue-cont").innerHTML=queue.join("<-");
+                }
+            function chu_dui()
+            {   queue.reverse();
+                queue.pop();
+                queue.reverse();
+                document.getElementById("queue-cont").innerHTML=queue.join("<-");
+                }
+            function da_yin(){
+                console.log(queue[queue.length-1]);
+            }
+            function pan_duan(queue){
+                queue=[];
+                if(queue[0]==undefined){
+                    console.log("空的");
+                }
+                else if(queue[0]!=undefined) {
+                    console.log("不空的");
+            }
+            }
+        </script>
+    </body>
+</html>
