@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+    <head><meta charset="UTF-8"></head>
+    <body>
+        <p id="time"></p>
+        <p id="time_format2"></p>
+        <script>
+            function year(){
+                var d = new Date()
+                d=d.toUTCString();
+                return d.substr(11,5)
+            }
+            function month(){
+                var e
+                var d = new Date()
+                d=d.toUTCString();
+                d=d.substr(8,3)
+                var month_day=
+                new Array("Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec");
+                for(i=0;i<month_day.length;i++){
+                    if(d==month_day[i]){
+                        e=i+1;
+                    }
+                }
+                if(e<10){e="0"+e}
+                else{e=" "+e;}
+                return e;
+            }
+            function day(){
+                var d = new Date()
+                d=d.toUTCString();
+                return d.substr(5,2)
+            }
+            function week_number(){
+                var d=new Date()
+                var weekday=new Array(7)
+                    weekday[0]="星期日"
+                    weekday[1]="星期一"
+                    weekday[2]="星期二"
+                    weekday[3]="星期三"
+                    weekday[4]="星期四"
+                    weekday[5]="星期五"
+                    weekday[6]="星期六"
+                    return weekday[d.getDay()]
+            }
+            function week_number_format_2(){
+                var d=new Date()
+                var weekday=new Array(7)
+                    weekday[0]="Sunday"
+                    weekday[1]="Monday"
+                    weekday[2]="Tuesday"
+                    weekday[3]="Wednesday"
+                    weekday[4]="Thursday"
+                    weekday[5]="Friday"
+                    weekday[6]="Saturday"
+                    return weekday[d.getDay()]
+            }
+            function time(){
+                var d = new Date()
+                d=d.toUTCString();
+                return d.substr(16,9)
+            }
+            function mor_eve(){
+                var d = new Date()
+                d=d.toUTCString();
+                d=d.substr(17,2);
+                if(d>=0&&d<=12){d="PM";}
+                else{d="AM";}
+                return d;
+            }
+            function mixed(){
+                var a
+                a=year()+"年"+month()+"月"+day()+"日"+week_number()+time();
+                document.getElementById("time").innerHTML=a;
+            }
+            function mixed_format_2(){
+                var a
+                a=year()+"-"+month()+"-"+day()+"-"+week_number_format_2()+time()+" "+mor_eve();
+                document.getElementById("time_format2").innerHTML=a;
+            }
+            setInterval(mixed(), 1000);
+            setInterval(mixed_format_2(), 1000);
+        </script>
+    </body>
+</html>
