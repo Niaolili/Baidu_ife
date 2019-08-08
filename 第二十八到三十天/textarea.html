@@ -2,6 +2,9 @@
 <html>
     <head>
         <meta charset="UTF-8">
+        <style type="text/css">
+            .ba_back {background-color: burlywood}
+        </style>
     </head>
     <body>
         <div class="wrapper">
@@ -43,6 +46,9 @@
                 var a=get_text();
                 create_tips(a);
                 control_dis_hide();
+                document.getElementById('email-sug-wrapper').childNodes[nowSelectTipIndex].className="ba_back"
+                console.log(document.getElementById('email-sug-wrapper').childNodes[nowSelectTipIndex].className)
+                console.log(document.getElementById('email-sug-wrapper').childNodes[nowSelectTipIndex])
             }
             function get_text(){
                 var t;
@@ -99,6 +105,9 @@
             function reset_tip_index(){
                 nowSelectTipIndex=0;
             }
+
+            function color_up(){document.getElementById('email-sug-wrapper').childNodes[nowSelectTipIndex].className="ba_back"}
+            function color_dw(){document.getElementById('email-sug-wrapper').childNodes[nowSelectTipIndex].className=""}
 //---------------------------------------------------------------------------------------------------------------------------
             document.onkeydown=function(event){
                 var e = event || window.event || arguments.callee.caller.arguments[0];
@@ -107,22 +116,26 @@
                     }
                 if(e && e.keyCode==38){ // 按 上
                     if (nowSelectTipIndex==0) {
+                        color_dw();
                         nowSelectTipIndex=document.getElementById('email-sug-wrapper').childNodes.length-1;
-                        console.log(nowSelectTipIndex);
+                        color_up();
                     }
                     else {
+                        color_dw();
                         nowSelectTipIndex--;
-                        console.log(nowSelectTipIndex);
+                        color_up();
                     }
                 }
                 if(e && e.keyCode==40){ // 按 下
                     if (nowSelectTipIndex==(document.getElementById('email-sug-wrapper').childNodes.length-1)) {
+                        color_dw();
                         reset_tip_index();
-                        console.log(nowSelectTipIndex);
+                        color_up();
                     }
                     else {
-                    nowSelectTipIndex++;
-                    console.log(nowSelectTipIndex);
+                        color_dw();
+                        nowSelectTipIndex++;
+                        color_up();
                     }
                 }
                 if(e && e.keyCode==13){ // 按 回车
