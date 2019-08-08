@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+    </head>
+    <body>
+        <div class="wrapper">
+                <input id="email-input" type="text" oninput="mix_function()">
+                <ul id="email-sug-wrapper" class="email-sug"></ul>
+        </div>
+        <script>
+            var nowSelectTipIndex = 0;
+            var HtmlUtil = {
+                /*3.用正则表达式实现html转码*/
+                htmlEncodeByRegExp:function (str){
+                    var s = "";
+                    if(str.length == 0) return "";
+                    s = str.replace(/&/g,"&amp;");
+                    s = s.replace(/</g,"&lt;");
+                    s = s.replace(/>/g,"&gt;");
+                    s = s.replace(/ /g,"&nbsp;");
+                    s = s.replace(/\'/g,"&#39;");
+                    s = s.replace(/\"/g,"&quot;");
+                    return s;
+                },
+            /*4.用正则表达式实现html解码*/
+                htmlDecodeByRegExp:function (str){
+                        var s = "";
+                        if(str.length == 0) return "";
+                        s = str.replace(/&amp;/g,"&");
+                        s = s.replace(/&lt;/g,"<");
+                        s = s.replace(/&gt;/g,">");
+                        s = s.replace(/&nbsp;/g," ");
+                        s = s.replace(/&#39;/g,"\'");
+                        s = s.replace(/&quot;/g,"\"");
+                        return s;
+                }
+            };
+            document.getElementById("email-input").focus();
+//------------------------------------------------------------------------------------------------------------------------
+            function mix_function(){
+                document.getElementById("email-sug-wrapper").innerHTML="";
+                var a=get_text();
+                create_tips(a);
+                control_dis_hide();
+            }
+            function get_text(){
+                var t;
+                t=document.getElementById("email-input").value;
+                return t;
+            }
+            function create_tips(a){
+                var postfixList = ['163.com', 'gmail.com', '126.com', 'qq.com', '263.net'];
+                var b;
+                if(a.match("@")=="@"){
+                    b=a.slice(a.lastIndexOf("@")+1,a.length).trim();
+                    a=a.slice(0,a.indexOf("@"));
+                }
+                for(i in postfixList){
+                    if(b==undefined){
+                        tip= a+"@"+postfixList[i];
+                        var tip = HtmlUtil.htmlEncodeByRegExp(tip);//转码
+                        var elem_li = document.createElement('li'); // 生成一个 li元素
+                        elem_li.innerHTML = tip; // 设置元素的内容
+                        document.getElementById('email-sug-wrapper').appendChild(elem_li); // 添加到UL中去
+                    }
+                    else if(postfixList[i].match(b)==b)
+                    {
+                        tip= a+"@"+postfixList[i];
+                        var tip = HtmlUtil.htmlEncodeByRegExp(tip);//转码
+                        var elem_li = document.createElement('li'); // 生成一个 li元素
+                        elem_li.innerHTML = tip; // 设置元素的内容
+                        document.getElementById('email-sug-wrapper').appendChild(elem_li); // 添加到UL中去
+                    }
+                }
+            }
+            function control_dis_hide(){
+                if(document.getElementById("email-input").value){
+                    display_tips();
+                }else{
+                    hide_tips();
+                }
+            }
+            function display_tips(){
+                document.getElementById("email-sug-wrapper").style.visibility="visible";
+            }
+            function hide_tips(){
+                document.getElementById("email-sug-wrapper").style.visibility="hidden";
+            }
+            document.getElementById("email-sug-wrapper").addEventListener("click", function(){
+                if(event.target){
+                a=event.target.innerHTML;
+                a= HtmlUtil.htmlDecodeByRegExp(a);//解码
+                document.getElementById("email-input").value=a;
+                hide_tips();
+                }
+                document.getElementById("email-input").focus();
+            });
+            function reset_tip_index(){
+                nowSelectTipIndex=0;
+            }
+//---------------------------------------------------------------------------------------------------------------------------
+            document.onkeydown=function(event){
+                var e = event || window.event || arguments.callee.caller.arguments[0];
+                if(e && e.keyCode!=13&&e.keyCode!=38&&e.keyCode!=40){ // 按 Esc
+                    nowSelectTipIndex=0;
+                    }
+                if(e && e.keyCode==38){ // 按 上
+                    if (nowSelectTipIndex==0) {
+                        nowSelectTipIndex=document.getElementById('email-sug-wrapper').childNodes.length-1;
+                        console.log(nowSelectTipIndex);
+                    }
+                    else {
+                        nowSelectTipIndex--;
+                        console.log(nowSelectTipIndex);
+                    }
+                }
+                if(e && e.keyCode==40){ // 按 下
+                    if (nowSelectTipIndex==(document.getElementById('email-sug-wrapper').childNodes.length-1)) {
+                        reset_tip_index();
+                        console.log(nowSelectTipIndex);
+                    }
+                    else {
+                    nowSelectTipIndex++;
+                    console.log(nowSelectTipIndex);
+                    }
+                }
+                if(e && e.keyCode==13){ // 按 回车
+                    p=document.getElementById('email-sug-wrapper').childNodes[nowSelectTipIndex].innerHTML;
+                    p=HtmlUtil.htmlDecodeByRegExp(p);//解码
+                    document.getElementById("email-input").value=p;
+                    hide_tips();
+                    console.log(nowSelectTipIndex);
+                }
+                if(e && e.keyCode==27){ // 按 Esc
+                    document.getElementById("email-input").select();
+                    }
+            }
+        </script>
+    </body>
+</html>
