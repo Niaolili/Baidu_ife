@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html>
+    <head><meta charset="UTF-8"></head>
+    <body>
+        <div id="wrapper" >
+            <input type="checkbox" id="single_region" name="sin" class="华东" >华东</input>
+            <input type="checkbox" id="single_region" name="sin" class="华南">华南</input>
+            <input type="checkbox" id="single_region" name="sin" class="华北">华北</input>
+            <input type="checkbox" id="all" name="al">全选</input>
+        </div>
+        <div id="wrapper_2" >
+            <input type="checkbox" id="single_item" name="sin_2" class="笔记本">笔记本</input>
+            <input type="checkbox" id="single_item" name="sin_2" class="智能音箱">智能音箱</input>
+            <input type="checkbox" id="single_item" name="sin_2" class="手机">手机</input>
+            <input type="checkbox" id="all" name="al_2">全选</input>
+        </div>
+        <table border="1" id="tab">
+            <tr>
+                <td>商品</td>
+                <td>地区</td>
+                <td>1月</td>
+                <td>2月</td>
+                <td>3月</td>
+                <td>4月</td>
+                <td>5月</td>
+                <td>6月</td>
+                <td>7月</td>
+                <td>8月</td>
+                <td>9月</td>
+                <td>10月</td>
+                <td>11月</td>
+                <td>12月</td>
+            </tr>
+        </table>
+        <script>
+            let sourceData = [{
+                product: "手机",
+                region: "华东",
+                sale: [120, 100, 140, 160, 180, 185, 190, 210, 230, 245, 255, 270]
+                },
+                {
+                    product: "手机",
+                    region: "华北",
+                    sale: [80, 70, 90, 110, 130, 145, 150, 160, 170, 185, 190, 200]
+                },
+                {
+                    product: "手机",
+                    region: "华南",
+                    sale: [220, 200, 240, 250, 260, 270, 280, 295, 310, 335, 355, 380]
+                },
+                {
+                    product: "笔记本",
+                    region: "华东",
+                    sale: [50, 60, 80, 110, 30, 20, 70, 30, 420, 30, 20, 20]
+                },
+                {
+                    product: "笔记本",
+                    region: "华北",
+                    sale: [30, 35, 50, 70, 20, 15, 30, 50, 710, 130, 20, 20]
+                },
+                {
+                    product: "笔记本",
+                    region: "华南",
+                    sale: [80, 120, 130, 140, 70, 75, 120, 90, 550, 120, 110, 100]
+                },
+                {
+                    product: "智能音箱",
+                    region: "华东",
+                    sale: [10, 30, 4, 5, 6, 5, 4, 5, 6, 5, 5, 25]
+                },
+                {
+                    product: "智能音箱",
+                    region: "华北",
+                    sale: [15, 50, 15, 15, 12, 11, 11, 12, 12, 14, 12, 40]
+                },
+                {
+                    product: "智能音箱",
+                    region: "华南",
+                    sale: [10, 40, 10, 6, 5, 6, 8, 6, 6, 6, 7, 26]
+                }]
+            document.getElementById("wrapper").onclick = function(){
+                one();
+                two();
+                get_data();
+                create_form();
+            }
+            document.getElementById("wrapper_2").onclick = function(){
+                one();
+                two();
+                get_data();
+                create_form();
+            }
+            function one(){
+                    var div = document.getElementById("wrapper");
+                    var input = document.getElementsByTagName('input');
+                    var single= document.getElementsByName("sin")
+                    var al=document.getElementsByName("al")
+                    div.onmousedown = function(ev){//第一个div
+                    var event = ev||window.event;  // 获取event对象
+                    var target = ev.target || ev.srcElement; // 获取触发事件的目标对象
+                    if(target.nodeName.toLowerCase() == 'input'){  //判断目标对象是不是input
+                        var a=target.id;
+                        if(a=="all"){
+                            for(i in single){
+                                single[i].checked = true;
+                            }
+                        }//全选
+                        else {
+                            for(i in single){
+                                if(!single[i].checked){
+                                    }
+                                else{
+                                    al[0].checked = false;
+                                }
+                            }
+                        }
+                    }
+                    }
+                }
+            function two(){
+                    var div_two =document.getElementById("wrapper_2");
+                    var single_two=document.getElementsByName("sin_2")
+                    var al_two=document.getElementsByName("al_2")
+                    div_two.onmousedown = function(ev){//第二个div
+                        var event = ev||window.event;  // 获取event对象
+                        var target = ev.target || ev.srcElement; // 获取触发事件的目标对象
+                        if(target.nodeName.toLowerCase() == 'input'){  //判断目标对象是不是input
+                            var b=target.id;
+                            if(b=="all"){
+                                for(i in single_two){
+                                    single_two[i].checked = true;
+                                }
+                            }//全选
+                            else {
+                                for(i in single_two){
+                                    if(!single_two[i].checked){
+                                        }
+                                    else{
+                                        al_two[0].checked = false;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            function get_data(){
+                var region=document.querySelectorAll( "#single_region")
+                var item=document.querySelectorAll( "#single_item")
+                var re=new Array;
+                var it=new Array
+                var sales=new Array
+                var re_re=new Array
+                var it_it=new Array
+                var root=new Array
+                var q=0,p=0,o=0,w=0
+
+                for(i in region){
+                    if(region[i].checked){
+                        re[o]=region[i].className
+                        o++
+                    }
+                }
+                for(i in item){
+                    if(item[i].checked){
+                        it[w]=item[i].className
+                        w++
+                    }
+                }
+                for(i in sourceData){
+                    for(n=0;n<10;n++){
+                        if(sourceData[i].product== it[n]||sourceData[i].region==re[n]){
+                            re_re[q]=sourceData[i].region
+                            it_it[q]=sourceData[i].product
+                            sales[q]=sourceData[i].sale
+                            q++
+                        }
+                    }
+                }
+                root[0]=re_re
+                root[1]=it_it
+                root[2]=sales
+                console.log(root)
+                return root;
+
+            }
+            function create_form(){
+                var new_data=get_data
+            }
+        </script>
+    </body>
+</html>
