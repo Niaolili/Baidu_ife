@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html>
+    <head><meta charset="UTF-8"></head>
+    <body>
+
+
+
+        <select id="region-select">
+            <option>华北</option>
+            <option>华南</option>
+            <option>华东</option>
+        </select>
+        <select id="item-select">
+                <option>手机</option>
+                <option>笔记本</option>
+                <option>智能音箱</option>
+        </select>
+        <table border="1" id="tab">
+            <tr>
+                <td>商品</td>
+                <td>地区</td>
+                <td>1月</td>
+                <td>2月</td>
+                <td>3月</td>
+                <td>4月</td>
+                <td>5月</td>
+                <td>6月</td>
+                <td>7月</td>
+                <td>8月</td>
+                <td>9月</td>
+                <td>10月</td>
+                <td>11月</td>
+                <td>12月</td>
+            </tr>
+        </table>
+        <script>
+
+            let sourceData = [{
+                product: "手机",
+                region: "华东",
+                sale: [120, 100, 140, 160, 180, 185, 190, 210, 230, 245, 255, 270]
+                },
+                {
+                    product: "手机",
+                    region: "华北",
+                    sale: [80, 70, 90, 110, 130, 145, 150, 160, 170, 185, 190, 200]
+                },
+                {
+                    product: "手机",
+                    region: "华南",
+                    sale: [220, 200, 240, 250, 260, 270, 280, 295, 310, 335, 355, 380]
+                },
+                {
+                    product: "笔记本",
+                    region: "华东",
+                    sale: [50, 60, 80, 110, 30, 20, 70, 30, 420, 30, 20, 20]
+                },
+                {
+                    product: "笔记本",
+                    region: "华北",
+                    sale: [30, 35, 50, 70, 20, 15, 30, 50, 710, 130, 20, 20]
+                },
+                {
+                    product: "笔记本",
+                    region: "华南",
+                    sale: [80, 120, 130, 140, 70, 75, 120, 90, 550, 120, 110, 100]
+                },
+                {
+                    product: "智能音箱",
+                    region: "华东",
+                    sale: [10, 30, 4, 5, 6, 5, 4, 5, 6, 5, 5, 25]
+                },
+                {
+                    product: "智能音箱",
+                    region: "华北",
+                    sale: [15, 50, 15, 15, 12, 11, 11, 12, 12, 14, 12, 40]
+                },
+                {
+                    product: "智能音箱",
+                    region: "华南",
+                    sale: [10, 40, 10, 6, 5, 6, 8, 6, 6, 6, 7, 26]
+                }]
+
+            document.getElementById("region-select").onchange =
+                function(){
+                    origin()
+                    get_data();
+                    create_new_form();
+            }
+            document.getElementById("item-select").onchange =
+                function(){
+                    origin()
+                    get_data();
+                    create_new_form();
+            }
+            function origin(){
+                document.getElementById('tab').lastChild.remove();
+            }
+            function region(){
+                var reg=document.getElementById("region-select");
+                var index=reg.selectedIndex;
+                var reg_text=reg[index].text;
+                return reg_text;
+            }
+            function item(){
+                var item=document.getElementById("item-select");
+                var index=item.selectedIndex;
+                var item_text=item[index].text;
+                return item_text;
+            }
+            function get_data(){
+                var re=region();
+                var items=item();
+                var new_data_origin=new Array();
+                var o=0;
+                var a
+                var pro=new Array();
+                var sal=new Array();
+                for (i in sourceData){
+                    if(sourceData[i].region ==re&&sourceData[i].product==items){
+                    var root=sourceData[i];//root obj
+                     pro[o]=root.product; //product name
+                     sal[o]=root.sale; //sale array
+                    o++
+                    a=re;
+                    }
+                }
+                new_data_origin[0]=pro;
+                new_data_origin[2]=sal;
+                new_data_origin[1]=a;
+                return new_data_origin;
+            }
+            function create_new_form(){
+                var new_data=get_data();
+                document.getElementById("tab").createCaption()
+                var tr;
+
+                for(n in new_data[0]){
+                tr = document.getElementById("tab").insertRow(n);
+                td = tr.insertCell(0);
+                td.innerText =new_data[0][n];
+                td=tr.insertCell(1);
+                td.innerText= new_data[1];
+                for(i=2;i<14;i++){
+                    td = tr.insertCell(i);
+                    td.innerText =new_data[2][n][i-2];
+                }
+                }
+            }
+        </script>
+    </body>
+</html>
